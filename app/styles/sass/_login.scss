@@ -1,0 +1,37 @@
+.geo-login {
+    padding-top: 100px;
+    @media (max-width: 768px) {
+        padding-top: 20px;
+    }
+}
+
+.geo-welcome {
+    @media (min-width: 768px) {
+        float: right;
+    }
+    text-align: center;
+}
+
+.login-form {
+    max-width: 400px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    @media (max-width: 768px) {
+        margin: 0 auto;
+        width: 80%;
+    }
+    .login-field {
+        border-radius: 5px;
+        width: 100%;
+    }
+
+    .login-button {
+        margin-top: 30px;
+    }
+}
+
+.login-form:before {
+    @media (max-width: 768px) {
+        border-color: transparent;
+    }
+}

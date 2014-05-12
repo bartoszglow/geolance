@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <title>Geolance!</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <!-- External styles -->
+        <link href="styles/vendor.min.css" rel="stylesheet">
+        <!-- Custom styles -->
+        <link href="styles/app.min.css" rel="stylesheet">
+
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+          <script src="js/html5shiv.js"></script>
+          <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="container">
+        <div data-ng-view=""></div>
+
+        <!-- External scripts -->
+        <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <script src="js/vendor.min.js"></script>
+        <!-- Custom scripts -->
+        <script src="js/app.min.js"></script>
+        <!-- <script src='js/controllers/mapCtrl.js'></script> -->
+
+        <!-- Live reload -->
+        <script src="http://localhost:35729/livereload.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+/* line 9, sass/app.scss */
+html,
+button,
+input,
+select,
+textarea {
+  color: #222;
+}
+
+/* line 13, sass/app.scss */
+html {
+  font-size: 1em;
+  line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection rule sets have to be separate.
+ * Customize the background color to match your design.
+ */
+/* line 24, sass/app.scss */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/* line 29, sass/app.scss */
+::selection {
+  background: #b3d4fc;
+  text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+/* line 38, sass/app.scss */
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/*
+ * Remove the gap between images, videos, audio and canvas and the bottom of
+ * their containers: h5bp.com/i/440
+ */
+/* line 55, sass/app.scss */
+audio,
+canvas,
+img,
+video {
+  vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+/* line 63, sass/app.scss */
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+/* line 73, sass/app.scss */
+textarea {
+  resize: vertical;
+}
+
+/* ==========================================================================
+   Browse Happy prompt
+   ========================================================================== */
+/* line 81, sass/app.scss */
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+/* line 93, sass/app.scss */
+html {
+  background: #1ABC9C;
+}
+
+/* line 97, sass/app.scss */
+body {
+  background: #1ABC9C;
+  color: #edeff1;
+}
+
+/* line 1, sass/_login.scss */
+.geo-login {
+  padding-top: 100px;
+}
+@media (max-width: 768px) {
+  /* line 1, sass/_login.scss */
+  .geo-login {
+    padding-top: 20px;
+  }
+}
+
+/* line 8, sass/_login.scss */
+.geo-welcome {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  /* line 8, sass/_login.scss */
+  .geo-welcome {
+    float: right;
+  }
+}
+
+/* line 15, sass/_login.scss */
+.login-form {
+  max-width: 400px;
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+@media (max-width: 768px) {
+  /* line 15, sass/_login.scss */
+  .login-form {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+/* line 23, sass/_login.scss */
+.login-form .login-field {
+  border-radius: 5px;
+  width: 100%;
+}
+/* line 28, sass/_login.scss */
+.login-form .login-button {
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  /* line 33, sass/_login.scss */
+  .login-form:before {
+    border-color: transparent;
+  }
+}
+
+/* line 1, sass/_ambulance.scss */
+.ambulance {
+  text-align: center;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 5px;
+}
+/* line 8, sass/_ambulance.scss */
+.ambulance .switch-name {
+  color: #7f8c8d;
+  margin-bottom: 0px;
+}
+/* line 13, sass/_ambulance.scss */
+.ambulance section {
+  width: 160px;
+  display: inline-block;
+}
+/* line 17, sass/_ambulance.scss */
+.ambulance input {
+  display: block;
+  opacity: 0;
+}
+/* line 21, sass/_ambulance.scss */
+.ambulance label {
+  width: 60px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  background: #7f8c8d;
+  border-radius: 30px;
+  margin: 0px;
+  transition: background-color 0.4s;
+  -moz-transition: background-color 0.4s;
+  -webkit-transition: background-color 0.4s;
+}
+/* line 35, sass/_ambulance.scss */
+.ambulance label:after {
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 5px;
+  content: '';
+  position: absolute;
+  background: #FFF;
+  border-radius: 10px;
+}
+/* line 45, sass/_ambulance.scss */
+.ambulance input:checked + label {
+  background: #1ABC9C;
+}
+/* line 48, sass/_ambulance.scss */
+.ambulance input:checked + label:after {
+  left: auto;
+  right: 0;
+}
+/* line 52, sass/_ambulance.scss */
+.ambulance .under-switch {
+  font: normal 10px/40px Arial;
+  color: #bdbdbd;
+  display: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+/* line 59, sass/_ambulance.scss */
+.ambulance input:checked ~ p:nth-of-type(1) {
+  color: #27ad5f;
+  display: block;
+}
+/* line 63, sass/_ambulance.scss */
+.ambulance input:not(:checked) ~ p:nth-of-type(2) {
+  display: block;
+}
+
+/* line 1, sass/_map.scss */
+.hospital-container {
+  padding-top: 20px;
+}
+
+/* line 5, sass/_map.scss */
+.angular-google-map-container {
+  height: 500px;
+  border-radius: 10px;
+}
+
+/* line 10, sass/_map.scss */
+.navbar {
+  padding: 5px 10px 5px 30px;
+}
+
+/* line 14, sass/_map.scss */
+#search-icon {
+  height: 10px;
+}

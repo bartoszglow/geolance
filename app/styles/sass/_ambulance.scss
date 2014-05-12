@@ -1,0 +1,67 @@
+.ambulance {
+  text-align: center;
+  background-color: #ecf0f1;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 5px;
+
+  .switch-name {
+  color: #7f8c8d;
+  margin-bottom: 0px;
+  }
+
+  section {
+    width: 160px;
+    display: inline-block;
+  }
+  input {
+    display: block;
+    opacity: 0;
+  }
+  label {
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    background: #7f8c8d;
+    border-radius: 30px;
+    margin: 0px;
+    
+    transition: background-color 0.4s;
+    -moz-transition: background-color 0.4s;
+    -webkit-transition: background-color 0.4s;
+  }
+  label:after {
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    content: '';
+    position: absolute;
+    background: #FFF;
+    border-radius: 10px;
+  }
+  input:checked + label {
+    background: #1ABC9C;
+  }
+  input:checked + label:after {
+    left: auto;
+    right: 0;
+  }
+  .under-switch {
+    font: normal 10px/40px Arial;
+    color: rgb(189, 189, 189);
+    display: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  input:checked ~ p:nth-of-type(1) {
+    color: rgb(39, 173, 95);
+    display: block;
+  }
+  input:not(:checked) ~ p:nth-of-type(2) {
+    display: block;
+  }
+}
+
