@@ -8,14 +8,21 @@ module.exports = function(grunt) {
 		    },
 		    vendor: {
 		        src: [
-		        		'bower_components/angular/angular.min.js',
+		        		'bower_components/angular/angular.js',
 		        		'bower_components/angular-route/angular-route.js',
 		        		'bower_components/underscore/underscore-min.js',
-		        		'bower_components/angular-google-maps/dist/angular-google-maps.min.js',
-		        		'bower_components/jquery/dist/jquery.min.js',
-		        		'bower_components/sass-bootstrap/dist/js/bootstrap.min.js',
+		        		'bower_components/angular-google-maps/dist/angular-google-maps.js',
+		        		'bower_components/jquery/dist/jquery.js',
+		        		'bower_components/sass-bootstrap/dist/js/bootstrap.js',
 		        	],
 		        dest: 'app/js/vendor.min.js',
+		    },
+		    IE: {
+		        src: [
+		        		'bower_components/html5shiv/dist/html5shiv.js',
+		        		'bower_components/respond/dest/respond.js',
+		        	],
+		        dest: 'app/js/IE.min.js',
 		    },
 		    custom: {
 		        src: [
