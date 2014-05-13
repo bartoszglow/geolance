@@ -1,10 +1,10 @@
-app.factory("AuthenticationService", ['$location', '$http', function($location, $http) {
+app.factory("AuthenticationService", ['$location', '$http', '$q', function($location, $http, $q) {
 
 	var userInfo = {};
 
 	return {
 		login: function(credentials) {	
-			alert(credentials.username + " " + credentials.password);
+			var q = $q.defer();
 
 	        if( credentials.username === "dispatcher" && credentials.password === "password") {
 	            console.log($location);
@@ -15,16 +15,17 @@ app.factory("AuthenticationService", ['$location', '$http', function($location, 
                         if (data.username !== '') {
                         	userInfo = data;
 	            			$location.path('/ambulance');	
+	            			q.resolve();
                         }
                         else {
-                            alert(data);
-                            console.log(data);
+                            q.reject(data.error);
                         }})
                     .error(function(data, status) { 	// called asynchronously if an error occurs
 														// or server returns response with an error status.
-                        alert(status);
                     });
             }
+
+            return q.promise;
 		},
 		logout: function() {
 

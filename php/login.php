@@ -24,7 +24,7 @@
     	$jsn = json_encode($arr);
     	print_r($jsn);
 	} else {
-        $arr = array('username' => "", 'error' => '');
+        $arr = array('username' => "", 'error' => 'Wrong password');
         $jsn = json_encode($arr);
         print_r($jsn);
 	}
