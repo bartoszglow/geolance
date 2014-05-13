@@ -31,6 +31,8 @@ app.controller('ambulanceCtrl', ['$scope', '$location', '$http', 'Authentication
     // FREE / BUSY
     $scope.accessChange = function() {
     	$scope.access = $('#access:checked')[0] ? true : false;	
+		window.clearTimeout($scope.timeout);						// clear timeout after change
+		$scope.update();											// start new timeout
     };
 
     $scope.logout = function() {
