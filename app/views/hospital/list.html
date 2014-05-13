@@ -1,0 +1,18 @@
+<div class="hospital-container"> 
+	<div ng-include src="'views/hospital/navTemplate.html'"></div>
+
+	<div class="box shadow">
+		<table class="table table-striped">
+		    <thead>
+		        <tr>
+		            <th ng-repeat="key in order"> {{key}} </th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr ng-repeat="object in objects">
+		            <td ng-repeat="key in order"> {{object[key]}} </td>
+		        </tr>
+		    </tbody>
+		</table>
+	</div>
+</div>

@@ -1,4 +1,4 @@
-app.controller('mapCtrl', ['$scope', function ($scope) {
+app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, ReceiveService) {
 
     $scope.map = {
         zoom: 12,
@@ -9,4 +9,9 @@ app.controller('mapCtrl', ['$scope', function ($scope) {
         }
     };
 
+    $scope.receive = function() {
+    	ReceiveService.receive();
+    };
+
+    $scope.receive();
 }]);

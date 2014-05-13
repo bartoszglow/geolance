@@ -248,3 +248,10 @@ body {
 #search-icon {
   height: 10px;
 }
+
+/* line 1, sass/_list.scss */
+.box.shadow {
+  background-color: #ecf0f1;
+  color: #34495e;
+  border-radius: 5px;
+}

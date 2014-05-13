@@ -14,7 +14,7 @@ app.controller('ambulanceCtrl', ['$scope', '$location', '$http', 'Authentication
 			        	'accuracy'	: pos.coords.accuracy
 			        };
 	        		$http.post('/geolance/php/update', updateInfo);
-					$scope.timeout = setTimeout($scope.update,10000);
+					$scope.timeout = setTimeout($scope.update,3000);
 		    	}
 		    );
 		}
