@@ -1,31 +1,22 @@
 app.controller('ambulanceCtrl', ['$scope', '$location', '$http', 'AuthenticationService', function ($scope, $location, $http, AuthenticationService) {
 	$scope.status = true;
 	$scope.access = false;
-	$scope.position = {};
 
 	$scope.update = function() {
 		if( $scope.status === true ) {
-			$scope.timeout = setTimeout($scope.update,10000);
-						
 		    navigator.geolocation.getCurrentPosition(
 		    	function(pos) {
-		    		$scope.position.latitude  = pos.coords.latitude;
-		    		$scope.position.longitude = pos.coords.longitude;
-		    		$scope.position.accuracy  = pos.coords.accuracy;
+					var updateInfo = {
+						'username'  : AuthenticationService.getUsername(),
+			        	'access' 	: $scope.access === false ? 0 : 1,
+			        	'latitude'	: pos.coords.latitude,
+			        	'longitude' : pos.coords.longitude,
+			        	'accuracy'	: pos.coords.accuracy
+			        };
+	        		$http.post('/geolance/php/update', updateInfo);
+					$scope.timeout = setTimeout($scope.update,10000);
 		    	}
 		    );
-
-			var updateInfo = {
-				'username'  : AuthenticationService.getUsername(),
-        		'access' 	: $scope.access === false ? 0 : 1,
-        		'latitude'	: $scope.position.latitude,
-        		'longitude' : $scope.position.longitude,
-        		'accuracy'	: $scope.position.accuracy
-			};		    
-
-			console.log(updateInfo);
-
-	        $http.post('/geolance/php/update', updateInfo);
 		}
 	};
 
