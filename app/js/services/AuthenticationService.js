@@ -28,7 +28,10 @@ app.factory("AuthenticationService", ['$location', '$http', '$q', function($loca
             return q.promise;
 		},
 		logout: function() {
-
+	        $location.path('/');	
+		},
+		getUsername: function() {
+			return userInfo.username;
 		}
 	};
 }]);

@@ -3,26 +3,26 @@
 	<div>
 		<h4 class="switch-name"> Status </h4>
 		<section>
-		  <input type="checkbox" id="checkbox1" ng-model="checkbox1" ng-change="status()"/>
-		  <label for="checkbox1"></label>
+		  <input type="checkbox" id="status" ng-model="checkbox1" ng-change="statusChange()"/>
+		  <label for="status"></label>
 		  
 		  <p class="under-switch">Online</p>
 		  <p class="under-switch">Offline</p>
 		</section>
 	</div>
 
-	<div>
+	<div class="toogled">
 		<h4 class="switch-name"> Access </h4>
 		<section>
-		  <input type="checkbox" id="checkbox2" ng-model="checkbox2"/>
-		  <label for="checkbox2"></label>
+		  <input type="checkbox" id="access" ng-model="checkbox2" ng-change="accessChange()"/>
+		  <label for="access"></label>
 		  
 		  <p class="under-switch">Free</p>
 		  <p class="under-switch">Busy</p>
 		</section>
 	</div>
 
-	<div>
+	<div class="toogled">
 		<h4 class="switch-name"> Else </h4>
 		<section>
 		  <input type="checkbox" id="checkbox3" ng-model="checkbox3"/>
@@ -31,5 +31,9 @@
 		  <p class="under-switch">yes</p>
 		  <p class="under-switch">nope</p>
 		</section>
+	</div>
+
+	<div>
+        <button class="btn btn-primary btn-lg btn-block" ng-click="logout()">Logout</button>
 	</div>
 </div>
