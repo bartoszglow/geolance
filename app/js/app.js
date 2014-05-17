@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngRoute', 'google-maps']);
+var app = angular.module('app', ['ngRoute']);
 
 app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
