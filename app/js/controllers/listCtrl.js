@@ -3,7 +3,10 @@ app.controller('listCtrl', ['$scope', 'ReceiveService', function ($scope, Receiv
     $scope.properties = [
         "username",
         "state",
-        "status"
+        "status",
+        "latitude",
+        "longitude",
+        "accuracy"
     ];
 
     setInterval( function() {

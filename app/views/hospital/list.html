@@ -5,18 +5,18 @@
 		<table class="table table-striped">
 		    <thead>
 		        <tr>
-		            <th ng-repeat="key in order"> {{key}} </th>
-		            <th> operations </th>
+		            <th ng-repeat="key in properties"> {{key}} </th>
+		            <!-- <th> operations </th> -->
 		        </tr>
 		    </thead>
 		    <tbody>
 		        <tr ng-repeat="object in objects">
-		            <td ng-repeat="key in order"> {{object[key]}} </td>
-		            <td> 
+		            <td ng-repeat="key in properties"> {{object[key]}} </td>
+<!-- 		            <td> 
           				<span class="input-icon fui-cross" ng-click="deleteAmbulance()"></span> 
 				        <span class="input-icon fui-gear"></span>
 				        {{count}}
-          			</td>
+          			</td> -->
 		        </tr>
 		    </tbody>
 		</table>
