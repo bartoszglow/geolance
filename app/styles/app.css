@@ -268,3 +268,8 @@ html, body, #map-canvas {
   color: #34495e;
   border-radius: 5px;
 }
+
+/* line 1, sass/_navTemplate.scss */
+.navbar-default {
+  background-color: #ecf0f1;
+}
