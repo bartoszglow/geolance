@@ -6,15 +6,27 @@ app.factory("ReceiveService", ['$location', '$http', function($location, $http) 
 	    $http.post('/geolance/php/receive')
 	       	.success(function(data, status, headers, config) {
 	       		table = data;
+
+		        for (var i = 0; i < table.length; i++) {
+		            table[i].state = table[i].state == 0 ? "bussy" : "free";
+		            table[i].status = (new Date() - new Date(table[i].lastLogin)) > 10000 ? "offline" : "online"; 
+		        }
+
             });    
 	};
 
 	setInterval( receive, 1000);
 
 	return {
-		getData: function() {
-			return table;
+		getData: function( properties ) {
+			var temp = [];
+			for (var i = 0; i < table.length; i++) {
+				temp.push({});
+	            for (var j = 0; j < properties.length; j++) {
+	                temp[i][properties[j]] = table[i][properties[j]];
+	            }
+	        }
+			return temp;
 		}
-		
 	};
 }]);

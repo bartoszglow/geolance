@@ -2,7 +2,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 
     $scope.objects = [{},{}];
 
-    $scope.order = [
+    $scope.properties = [
         "username",
         "state",
         "status",
@@ -10,23 +10,15 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
         "longitude"
     ];
 
-    // DODAĆ OPCJĘ ŻEBY W RECEIVESERVICE WSZYSTKO BYLO USTALANE, A JA TYLKO PODAJE PRZEZ ZAPYTANIE CZEGO POTRZEBA I KOPIUJE CALY OBIEKT
-
     setInterval( function() {
-        var temp = ReceiveService.getData();
+        $scope.objects = ReceiveService.getData( $scope.properties );
 
-        for (var i = 0; i < temp.length; i++) {
-            for (var j = 0; j < $scope.order.length; j++) {
-                $scope.objects[i][$scope.order[j]] = temp[i][$scope.order[j]];
-            }
-            $scope.objects[i].state = $scope.objects[i].state == 0 ? "bussy" : "free";
-            $scope.objects[i].status = (new Date() - new Date(temp[i].lastLogin)) > 10000 ? "offline" : "online"; 
-
+        for (var i = 0; i < $scope.objects.length; i++) {
             placeAmbulance(i, new google.maps.LatLng($scope.objects[i].latitude, $scope.objects[i].longitude));
         }
 
-        console.log($scope.objects);
-    }, 1000);
+        // console.log($scope.objects);
+    }, 5000);
 
 	function placeAmbulance(i, location) {
 		if($scope.objects[i].marker) {
