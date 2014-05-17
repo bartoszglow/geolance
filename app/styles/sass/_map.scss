@@ -14,3 +14,15 @@
 #search-icon {
 	height: 10px;
 }
+
+.map {
+	height: 500px;
+}
+
+
+      html, body, #map-canvas {
+        height: 500px;
+       	border-radius: 5px;
+        margin: 0px;
+        padding: 0px
+      }

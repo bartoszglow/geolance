@@ -5,8 +5,7 @@ app.controller('listCtrl', ['$scope', 'ReceiveService', function ($scope, Receiv
     $scope.order = [
         "username",
         "state",
-        "status",
-        "operations"
+        "status"
     ];
 
     setInterval( function() {
@@ -22,5 +21,9 @@ app.controller('listCtrl', ['$scope', 'ReceiveService', function ($scope, Receiv
 
         console.log($scope.objects);
     }, 1000);
+
+    $scope.deleteAmbulance = function() {
+        
+    };  
 
 }]);

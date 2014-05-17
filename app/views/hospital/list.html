@@ -6,11 +6,17 @@
 		    <thead>
 		        <tr>
 		            <th ng-repeat="key in order"> {{key}} </th>
+		            <th> operations </th>
 		        </tr>
 		    </thead>
 		    <tbody>
 		        <tr ng-repeat="object in objects">
 		            <td ng-repeat="key in order"> {{object[key]}} </td>
+		            <td> 
+          				<span class="input-icon fui-cross" ng-click="deleteAmbulance()"></span> 
+				        <span class="input-icon fui-gear"></span>
+				        {{count}}
+          			</td>
 		        </tr>
 		    </tbody>
 		</table>

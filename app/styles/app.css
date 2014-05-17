@@ -249,6 +249,19 @@ body {
   height: 10px;
 }
 
+/* line 18, sass/_map.scss */
+.map {
+  height: 500px;
+}
+
+/* line 23, sass/_map.scss */
+html, body, #map-canvas {
+  height: 500px;
+  border-radius: 5px;
+  margin: 0px;
+  padding: 0px;
+}
+
 /* line 1, sass/_list.scss */
 .box.shadow {
   background-color: #ecf0f1;

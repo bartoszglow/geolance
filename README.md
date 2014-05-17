@@ -38,6 +38,9 @@ Source localized in dist/ folder.
 ##### map:
 1. Markers for ambulances in map.
 2. Possibility to add point on the map and suggesting nearest ambulance.
+3. Clear.
+4. Traffic.
+5. Styles.
 	
 ##### table:
 
