@@ -283,7 +283,3 @@ body {
   color: #ecf0f1;
   border-radius: 5px;
 }
-/* line 14, sass/_list.scss */
-.box.shadow .table {
-  opacity: 1;
-}

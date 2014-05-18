@@ -87,14 +87,24 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		directionsDisplay.setMap(map);
 		// directionsDisplay.setPanel(document.getElementById('directionsPanel'));
 
-		google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {
-		    // computeTotalDistance(directionsDisplay.getDirections());
+		google.maps.event.addListener(directionsDisplay, 'directions_changed', function() {    
+			calcRoute();
 		});
 
 		google.maps.event.addListener(map, 'click', function(event) {
 		   	placeMarker(event.latLng);
-			calcRoute();
 		});
+
+		var input = (document.getElementById('search-input'));
+
+		var searchBox = new google.maps.places.SearchBox(input);
+
+		google.maps.event.addListener(searchBox, 'places_changed', function() {
+		    var places = searchBox.getPlaces();
+		  
+		    placeMarker(places[0].geometry.location);
+		});
+
 	}
 
 	function placeAmbulance(i, location) {
@@ -125,6 +135,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		    draggable: true,
 		    animation: google.maps.Animation.BOUNCE
 		});
+		calcRoute();
 	}
 
 	function calcRoute() {
