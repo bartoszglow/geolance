@@ -147,7 +147,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 						    distance += myroute.legs[i].distance.value;
 						}
 
-			  			console.log(distance + " < " + best.distance);
+			  			// console.log(distance + " < " + best.distance);
 			  			if(distance < best.distance || !best.distance) {
 			  				best.distance = distance;
 			  				best.route = response;
@@ -187,12 +187,14 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 
 
 
-
-
-
-
-
-
+	$('.list-button a').click(function(){
+		var content = $('.list-container');
+		if(content.hasClass('active')) {
+			content.removeClass('active').fadeOut(1000);
+		} else {
+			content.addClass('active').fadeIn(1000);
+		}
+	});
 
 	
 

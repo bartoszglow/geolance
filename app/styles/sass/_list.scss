@@ -1,5 +1,17 @@
+.list-container {
+	position: absolute;
+	top: 80px;
+	width: 100%;
+	display: none;
+}
+
 .box.shadow {
-	background-color: #ecf0f1;
-	color: #34495e;
+    background-color: rgba(52, 73, 94, 0.8);
+
+	color: #ecf0f1;
 	border-radius: 5px;
+
+	.table {
+		opacity: 1;
+	}
 }

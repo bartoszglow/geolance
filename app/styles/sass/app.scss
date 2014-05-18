@@ -92,9 +92,11 @@ textarea {
    
 html {
     background: #1ABC9C;
+    height: 100%;
 }
 
 body {
+    height: 100%;
     background: #1ABC9C;
     color: #edeff1;
 }
@@ -103,4 +105,3 @@ body {
 @import "ambulance";
 @import "map";
 @import "list";
-@import "navTemplate";

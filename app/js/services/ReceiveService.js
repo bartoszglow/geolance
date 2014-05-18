@@ -8,8 +8,8 @@ app.factory("ReceiveService", ['$location', '$http', function($location, $http) 
 	       		table = data;
 
 		        for (var i = 0; i < table.length; i++) {
-		            table[i].state = table[i].state == 0 ? "bussy" : "free";
 		            table[i].status = (new Date() - new Date(table[i].lastLogin)) > 10000 ? "offline" : "online"; 
+		            table[i].state = table[i].status == "offline" ? "-" : table[i].state == 0 ? "bussy" : "free";
 		        }
 
             });    

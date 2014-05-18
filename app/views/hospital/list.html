@@ -1,22 +1,14 @@
-<div class="hospital-container"> 
-	<div ng-include src="'views/hospital/navTemplate.html'"></div>
-
-	<div class="box shadow">
-		<table class="table table-striped">
+<div ng-controller="listCtrl"> 
+	<div class="box shadow col-sm-offset-2 col-sm-8">
+		<table class="table">
 		    <thead>
 		        <tr>
 		            <th ng-repeat="key in properties"> {{key}} </th>
-		            <!-- <th> operations </th> -->
 		        </tr>
 		    </thead>
 		    <tbody>
 		        <tr ng-repeat="object in objects">
 		            <td ng-repeat="key in properties"> {{object[key]}} </td>
-<!-- 		            <td> 
-          				<span class="input-icon fui-cross" ng-click="deleteAmbulance()"></span> 
-				        <span class="input-icon fui-gear"></span>
-				        {{count}}
-          			</td> -->
 		        </tr>
 		    </tbody>
 		</table>

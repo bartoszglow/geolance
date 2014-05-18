@@ -1,5 +1,12 @@
+.ng-scope .hospital-container {
+    height: 100%;
+}
+
 .hospital-container {
-	padding-top: 20px;
+  .ng-scope {
+    height: 50px;
+    margin-bottom: 20px;
+  }
 }
 
 .angular-google-map-container { 
@@ -7,22 +14,23 @@
 	border-radius: 10px;
 }
 
+#map-canvas {
+   	top: 0;
+   	left: 0;
+   	position: absolute;
+	  height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px
+}
+
 .navbar {
-	padding: 5px 10px 5px 30px;
+  height: 50px;
+  margin-top: 10px;
+
+  .list-button {
+    padding-top: 4px;
+    padding-left: 25px;
+  }
 }
 
-#search-icon {
-	height: 10px;
-}
-
-.map {
-	height: 500px;
-}
-
-
-      html, body, #map-canvas {
-        height: 500px;
-       	border-radius: 5px;
-        margin: 0px;
-        padding: 0px
-      }

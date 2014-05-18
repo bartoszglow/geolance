@@ -1,5 +1,38 @@
 <div class="hospital-container"> 
-	<div ng-include src="'views/hospital/navTemplate.html'"></div>
-
 	<div id="map-canvas"></div>
+
+	<nav class="navbar navbar-inverse col-sm-6 col-sm-offset-3" role="navigation">
+		<div class="col-sm-3">
+		    <div class="navbar-header">
+			    <a class="navbar-brand" href="#">
+			        Geolance!
+			    </a>
+		    </div>
+		</div>
+
+		<div class="col-sm-7">
+		    <form role="search" class="navbar-form">
+			    <div class="form-group">
+			        <div class="input-group">
+				        <input class="form-control" id="navbarInput-01" type="search" placeholder="Search">
+				        <span class="input-group-btn">
+				            <button type="submit" class="btn"><span class="fui-search"></span></button>
+				        </span>            
+			        </div>
+			    </div>
+		    </form>
+		</div>
+
+		<div class="col-sm-2">
+		    <form role="search" class="navbar-form">
+			    <div class="list-button">
+			        <a>
+			    	    <span class="fui-list"></span>
+			        </a>
+			    </div>
+		    </form>
+		</div>
+	</nav>
+
+	<div class="list-container" id="cosss" ng-include src="'views/hospital/list.html'"></div>
 </div>
