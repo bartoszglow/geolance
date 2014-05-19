@@ -23,7 +23,13 @@
     .login-field {
         border-radius: 5px;
         width: 100%;
+        color: #16a085;
     }
+    .login-field:focus {
+        border-color: transparent;
+    }
+
+
 
     .login-button {
         margin-top: 30px;

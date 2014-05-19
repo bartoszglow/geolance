@@ -142,14 +142,19 @@ body {
 .login-form .login-field {
   border-radius: 5px;
   width: 100%;
+  color: #16a085;
 }
 /* line 28, sass/_login.scss */
+.login-form .login-field:focus {
+  border-color: transparent;
+}
+/* line 34, sass/_login.scss */
 .login-form .login-button {
   margin-top: 30px;
 }
 
 @media (max-width: 768px) {
-  /* line 33, sass/_login.scss */
+  /* line 39, sass/_login.scss */
   .login-form:before {
     border-color: transparent;
   }
