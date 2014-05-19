@@ -190,7 +190,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 	google.maps.event.addDomListener(window, 'load', initialize);
 
 
-
+	// FADE IN FADE OUT TABLE
 	$('.list-button a').click(function(){
 		var content = $('.list-container');
 		if(content.hasClass('active')) {
@@ -200,9 +200,14 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		}
 	});
 
-	
+	// SEARCH BOX ICON FOCUS
 	$('#search-input').click(function(){
-		$('#search-input').parent().toggleClass('focus');
+		$('#search-input').parent().addClass('focus');
+	});
+	$('.navbar').bind('click', function(e) {
+	    if(e.target != $('#search-input')[0]) {
+			$('#search-input').parent().removeClass('focus');
+	    }
 	});
 
 
