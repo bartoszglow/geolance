@@ -41,6 +41,10 @@ Source localized in dist/ folder.
 3. Clear.
 4. Traffic.
 5. Styles.
+6. Properties:
+ - use free/busy
+ - follow track
+ - dont refresh map
 	
 ##### table:
 

@@ -111,24 +111,26 @@ module.exports = function(grunt) {
 			    src: [
 			    		'index.html',
 			    		'fonts/**',
-			    		'images/**'
+			    		'images/**',
+			    		'views/**',
+			    		'php/**'
 			    ],
 			    dest: 'dist/',
-			    flatten: true,
+			    flatten: false,
 			},
 			js: {
 			    expand: true,
 			    cwd: 'app/',
 			    src: 'js/**.min.js',
-			    dest: 'dist/js',
-			    flatten: true,
+			    dest: 'dist/',
+			    flatten: false,
 			},
 			styles: {
 			    expand: true,
 			    cwd: 'app/',
 			    src: 'styles/**.min.css',
-			    dest: 'dist/styles',
-			    flatten: true,
+			    dest: 'dist/',
+			    flatten: false,
 			}
 		}
 	});
@@ -139,6 +141,10 @@ module.exports = function(grunt) {
 	  grunt.loadNpmTasks('grunt-contrib-cssmin');
 	  grunt.loadNpmTasks('grunt-contrib-watch');
 	  grunt.loadNpmTasks('grunt-contrib-connect');
+	  grunt.loadNpmTasks('grunt-contrib-clean');
+	  grunt.loadNpmTasks('grunt-contrib-copy');
+
+	  grunt.registerTask('build', ['uglify', 'compass', 'cssmin', 'clean','copy']);
 
 	  grunt.registerTask('serve', ['uglify', 'compass', 'cssmin', 'connect','watch']);
 

@@ -7,11 +7,11 @@ app.factory("AuthenticationService", ['$location', '$http', '$q', function($loca
 			var q = $q.defer();
 
 	        if( credentials.username === "dispatcher" && credentials.password === "password") {
-	            console.log($location);
 	            $location.path('/map');	
 	        } else {
-	        	$http.post('/geolance/php/login', {'username': credentials.username, 'password': credentials.password})
+	        	$http.post('php/login.php', {'username': credentials.username, 'password': credentials.password})
 	        		.success(function(data, status, headers, config) {
+
                         if (data.username !== '') {
                         	userInfo = data;
 	            			$location.path('/ambulance');	

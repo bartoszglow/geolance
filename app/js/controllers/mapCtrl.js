@@ -17,7 +17,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	var directionsService = new google.maps.DirectionsService();
 	var map;
-	var marker;				// touch event marker
+	var marker;		// touch event marker
 	var objects;			// table of ambulances
 	var old_objects;
 	var poznan = new google.maps.LatLng(52.411629, 16.933938);
@@ -64,7 +64,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		        placeAmbulance(i, new google.maps.LatLng(objects[i].latitude, objects[i].longitude));
 		    }
 		    calcRoute();
-		}, 2000);
+		}, 5000);
 
 		var styledMapOptions = {
 		    name: 'Custom Style'
@@ -75,10 +75,19 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		var mapOptions = {
 		    zoom: 13,
 		    center: poznan,
-		    mapTypeControlOptions: {
-		      	mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
-		    },
-		    mapTypeId: MY_MAPTYPE_ID
+		    // mapTypeControlOptions: {
+		    //   	mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+		    // },
+		    mapTypeId: MY_MAPTYPE_ID, 
+	        zoomControlOptions: {
+	        	style: 'SMALL'
+	        },
+	        mapTypeControlOptions: {
+	        	position: 'BOTTOM_CENTER'
+	        },
+	        streetViewControlOptions: {
+	        	position: 'BOTTOM_CENTER'
+	        }
 		};
 
 	  	var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
@@ -136,6 +145,10 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
       		icon: 'images/spotlight-poi.png',
 		    draggable: true,
 		    animation: google.maps.Animation.BOUNCE
+		});
+		google.maps.event.addListener(marker, 'click', function(event) {
+		   	marker.setMap(null);
+		   	marker = null;
 		});
 		calcRoute();
 	}

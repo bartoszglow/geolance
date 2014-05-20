@@ -269,9 +269,13 @@ body {
   margin-top: 10px;
 }
 /* line 31, sass/_map.scss */
+.navbar .navbar-form {
+  padding-left: 0px;
+}
+/* line 35, sass/_map.scss */
 .navbar .list-button {
   padding-top: 4px;
-  padding-left: 25px;
+  padding-right: 51px;
 }
 
 /* line 1, sass/_list.scss */
