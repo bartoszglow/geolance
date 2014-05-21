@@ -278,6 +278,14 @@ body {
   padding-right: 51px;
 }
 
+/* line 41, sass/_map.scss */
+.options-container {
+  position: absolute;
+  top: 80px;
+  width: 100%;
+  display: none;
+}
+
 /* line 1, sass/_list.scss */
 .list-container {
   position: absolute;

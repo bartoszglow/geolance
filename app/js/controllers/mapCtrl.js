@@ -55,6 +55,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
     	},
   	];
 
+	google.maps.event.addDomListener(window, 'load', function() { setTimeout(initialize,500); });
 	function initialize() { 
 
 		setInterval( function() {
@@ -200,12 +201,19 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		return total;
 	}
 
-	google.maps.event.addDomListener(window, 'load', initialize);
-
-
 	// FADE IN FADE OUT TABLE
 	$('.list-button a').click(function(){
 		var content = $('.list-container');
+		if(content.hasClass('active')) {
+			content.removeClass('active').fadeOut(1000);
+		} else {
+			content.addClass('active').fadeIn(1000);
+		}
+	});
+
+	// FADE IN FADE OUT TABLE
+	$('.options-button a').click(function(){
+		var content = $('.options-container');
 		if(content.hasClass('active')) {
 			content.removeClass('active').fadeOut(1000);
 		} else {

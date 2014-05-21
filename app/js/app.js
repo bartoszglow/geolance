@@ -12,11 +12,6 @@ app.config(['$routeProvider', function ($routeProvider) {
                 controller: 'mapCtrl',
                 templateUrl: 'views/hospital/map.html'
             })
-        .when('/list',
-            {
-                controller: 'listCtrl',
-                templateUrl: 'views/hospital/list.html'
-            })
         .when('/ambulance',
             {
                 controller: 'ambulanceCtrl',

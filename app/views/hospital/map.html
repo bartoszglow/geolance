@@ -34,7 +34,7 @@
 		</div>
 		<div class="col-sm-1">
 		    <form role="search" class="navbar-form">
-			    <div class="list-button">
+			    <div class="options-button">
 			        <a>
 			    	    <span class="fui-gear"></span>
 			        </a>
@@ -43,5 +43,18 @@
 		</div>
 	</nav>
 
-	<div class="list-container" id="cosss" ng-include src="'views/hospital/list.html'"></div>
+	<div class="list-container" ng-include src="'views/hospital/list.html'"></div>
+
+	<div class="options-container">
+		<div class="box shadow">
+			<h4 class="switch-name"> Status </h4>
+			<section>
+			  <input type="checkbox" id="status" ng-model="checkbox1" ng-change="statusChange()"/>
+			  <label for="status"></label>
+			  
+			  <p class="under-switch">Online</p>
+			  <p class="under-switch">Offline</p>
+			</section>
+		</div>
+	</div>
 </div>
