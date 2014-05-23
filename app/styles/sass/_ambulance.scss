@@ -4,9 +4,15 @@
   border-radius: 10px;
   padding: 20px;
   margin-top: 5px;
+}
 
+.switch-box {
   .switch-name {
   color: #7f8c8d;
+  margin-bottom: 0px;
+  }
+  .switch-name.white {
+  color: #ecf0f1;
   margin-bottom: 0px;
   }
 
@@ -64,4 +70,5 @@
     display: block;
   }
 }
+
 

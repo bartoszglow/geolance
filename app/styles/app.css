@@ -168,23 +168,29 @@ body {
   padding: 20px;
   margin-top: 5px;
 }
-/* line 8, sass/_ambulance.scss */
-.ambulance .switch-name {
+
+/* line 10, sass/_ambulance.scss */
+.switch-box .switch-name {
   color: #7f8c8d;
   margin-bottom: 0px;
 }
-/* line 13, sass/_ambulance.scss */
-.ambulance section {
+/* line 14, sass/_ambulance.scss */
+.switch-box .switch-name.white {
+  color: #ecf0f1;
+  margin-bottom: 0px;
+}
+/* line 19, sass/_ambulance.scss */
+.switch-box section {
   width: 160px;
   display: inline-block;
 }
-/* line 17, sass/_ambulance.scss */
-.ambulance input {
+/* line 23, sass/_ambulance.scss */
+.switch-box input {
   display: block;
   opacity: 0;
 }
-/* line 21, sass/_ambulance.scss */
-.ambulance label {
+/* line 27, sass/_ambulance.scss */
+.switch-box label {
   width: 60px;
   height: 30px;
   cursor: pointer;
@@ -197,8 +203,8 @@ body {
   -moz-transition: background-color 0.4s;
   -webkit-transition: background-color 0.4s;
 }
-/* line 35, sass/_ambulance.scss */
-.ambulance label:after {
+/* line 41, sass/_ambulance.scss */
+.switch-box label:after {
   left: 0;
   width: 20px;
   height: 20px;
@@ -208,30 +214,30 @@ body {
   background: #FFF;
   border-radius: 10px;
 }
-/* line 45, sass/_ambulance.scss */
-.ambulance input:checked + label {
+/* line 51, sass/_ambulance.scss */
+.switch-box input:checked + label {
   background: #1ABC9C;
 }
-/* line 48, sass/_ambulance.scss */
-.ambulance input:checked + label:after {
+/* line 54, sass/_ambulance.scss */
+.switch-box input:checked + label:after {
   left: auto;
   right: 0;
 }
-/* line 52, sass/_ambulance.scss */
-.ambulance .under-switch {
+/* line 58, sass/_ambulance.scss */
+.switch-box .under-switch {
   font: normal 10px/40px Arial;
   color: #bdbdbd;
   display: none;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-/* line 59, sass/_ambulance.scss */
-.ambulance input:checked ~ p:nth-of-type(1) {
+/* line 65, sass/_ambulance.scss */
+.switch-box input:checked ~ p:nth-of-type(1) {
   color: #27ad5f;
   display: block;
 }
-/* line 63, sass/_ambulance.scss */
-.ambulance input:not(:checked) ~ p:nth-of-type(2) {
+/* line 69, sass/_ambulance.scss */
+.switch-box input:not(:checked) ~ p:nth-of-type(2) {
   display: block;
 }
 
@@ -277,13 +283,39 @@ body {
   padding-top: 4px;
   padding-right: 51px;
 }
+/* line 40, sass/_map.scss */
+.navbar .options-button {
+  padding-top: 4px;
+  padding-right: 51px;
+}
 
-/* line 41, sass/_map.scss */
+/* line 46, sass/_map.scss */
 .options-container {
   position: absolute;
+  margin: 0 auto;
+  text-align: center;
   top: 80px;
   width: 100%;
   display: none;
+}
+/* line 53, sass/_map.scss */
+.options-container .box {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* line 59, sass/_map.scss */
+.bottom {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  top: 94%;
+  width: 100%;
+}
+/* line 67, sass/_map.scss */
+.bottom .distance {
+  padding-right: 20px;
 }
 
 /* line 1, sass/_list.scss */

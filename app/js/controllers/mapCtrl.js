@@ -14,6 +14,18 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 	    polylineOptions: {strokeColor:'#c0392b'}
 	};
 
+	var options = {
+		'busy' : 		false,
+		'follow' : 		false,
+		'followName' :  '',
+		'followTry' : 	true,
+		'refresh' : 	false,	
+		'bestRoute' : {
+			'totalTime' : 	 null,
+			'totalDistance' : null
+		},
+	};
+
 	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);
 	var directionsService = new google.maps.DirectionsService();
 	var map;
@@ -125,6 +137,7 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 		    position: location, 
 		    map: map,
       		icon: objects[i].state == "free" ? 'images/spotlight-poi-green.png' : 'images/spotlight-poi-blue.png',
+      		title: objects[i].username
 		});
 		setTimeout(function(){
 			if(old_objects[i].marker) {
@@ -156,69 +169,104 @@ app.controller('mapCtrl', ['$scope', 'ReceiveService', function ($scope, Receive
 
 	function calcRoute() {
 		var best = {};
-		var calc = 0;
+		var wrong = 0;
 
 		for (var i = 0; i < objects.length; i++) {
 			if(objects[i].marker && marker) {
-				var request = {
-				    origin: objects[i].marker.position,
-				    destination: marker.position,
-				    travelMode: google.maps.TravelMode.DRIVING
-				};
-				directionsService.route(request, function(response, status) {
-				    if (status == google.maps.DirectionsStatus.OK) {
-				        var myroute = response.routes[0];
-				        var distance = 0;
-				        for (var i = 0; i < myroute.legs.length; i++) {
-						    distance += myroute.legs[i].distance.value;
-						}
+				if(objects[i].state == "free" || options.busy) { // Check if busy ambulances are used
 
-			  			// console.log(distance + " < " + best.distance);
-			  			if(distance < best.distance || !best.distance) {
-				  			best.distance = distance;
-				  			best.route = response;
-				  			directionsDisplay.setDirections(best.route);
-			  			}
-				    }
-			  	});
+						var request = {
+						    origin: objects[i].marker.position,
+						    destination: marker.position,
+						    travelMode: google.maps.TravelMode.DRIVING
+						};
+						var current_object = objects[i];
+						directionsService.route(request, function(response, status) {
+							var object = current_object;
+						    if (status == google.maps.DirectionsStatus.OK) {
+						        var myroute = response.routes[0];
+						        var distance = 0;
+						        var time = 0;
+						        for (var j = 0; j < myroute.legs.length; j++) {
+								    distance += myroute.legs[j].distance.value;
+   									time +=myroute.legs[j].duration.text;
+								}
+
+					  			// console.log(distance + " < " + best.distance);
+					  			if(distance < best.distance || !best.distance) {
+						  			best.distance = distance;
+						  			best.route = response;
+						  			options.bestRoute.totalTime = time;
+						  			options.bestRoute.totalDistance = distance;
+						  			directionsDisplay.setDirections(best.route);
+
+						  			console.log(distance);
+						  			console.log(time);
+						  			$('.distance').text(distance);
+						  			$('.time').text(time);
+						  			$('.bottom').fadeIn(500);
+					  			}
+						    }
+					  	});		
+
+				} else {
+					wrong++;
+					if( wrong == objects.length ) {
+						$('.bottom').fadeOut(500);
+						options.bestRoute.totalTime = null;
+						options.bestRoute.totalDistance = null;
+						directionsDisplay.set('directions', null);
+					}
+				}
 			} else {
-				calc++;
-				if( calc == objects.length ) {
+				wrong++;
+				if( wrong == objects.length ) {
+					$('.bottom').fadeOut(500);
+					options.bestRoute.totalTime = null;
+					options.bestRoute.totalDistance = null;
 					directionsDisplay.set('directions', null);
 				}
 			}
 		}
 	}
 
-	function computeTotalDistance(result) {
-		var total = 0;
-		var myroute = result.routes[0];
-		for (var i = 0; i < myroute.legs.length; i++) {
-		    total += myroute.legs[i].distance.value;
-		}
-		total = total / 1000.0;
-		document.getElementById('total').innerHTML = total + ' km';
-		return total;
-	}
-
 	// FADE IN FADE OUT TABLE
 	$('.list-button a').click(function(){
-		var content = $('.list-container');
-		if(content.hasClass('active')) {
-			content.removeClass('active').fadeOut(1000);
+		var options = $('.options-container');
+		var list 	= $('.list-container');
+		if(list.hasClass('active')) {
+			list.removeClass('active').fadeOut(500);
 		} else {
-			content.addClass('active').fadeIn(1000);
+			if(options.hasClass('active')) {
+				options.removeClass('active').fadeOut(500, function() {list.addClass('active').fadeIn(500);});
+			} else 
+				list.addClass('active').fadeIn(500);
 		}
 	});
 
-	// FADE IN FADE OUT TABLE
+
+	// FADE IN FADE OUT OPTIONS
 	$('.options-button a').click(function(){
-		var content = $('.options-container');
-		if(content.hasClass('active')) {
-			content.removeClass('active').fadeOut(1000);
+		var options = $('.options-container');
+		var list 	= $('.list-container');
+		if(options.hasClass('active')) {
+			options.removeClass('active').fadeOut(500);
 		} else {
-			content.addClass('active').fadeIn(1000);
+			if(list.hasClass('active')) {
+				list.removeClass('active').fadeOut(500, function() {options.addClass('active').fadeIn(500);});
+			} else 
+				options.addClass('active').fadeIn(500);
 		}
+	});
+
+	$('label').click(function(){
+		var id = $(this).attr('for');
+		var value = $('#' + id + ':checked').length;
+		options[id] = value === 0 ? true : false;
+		if( id == "follow" )
+			options.followTry = true;
+		console.log(options);
+		calcRoute();
 	});
 
 	// SEARCH BOX ICON FOCUS

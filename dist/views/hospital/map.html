@@ -46,15 +46,48 @@
 	<div class="list-container" ng-include src="'views/hospital/list.html'"></div>
 
 	<div class="options-container">
-		<div class="box shadow">
-			<h4 class="switch-name"> Status </h4>
-			<section>
-			  <input type="checkbox" id="status" ng-model="checkbox1" ng-change="statusChange()"/>
-			  <label for="status"></label>
-			  
-			  <p class="under-switch">Online</p>
-			  <p class="under-switch">Offline</p>
-			</section>
+		<div class="box shadow col-sm-offset-3 col-sm-6">
+			<div class="switch-box">
+				<h4 class="switch-name white" data-white> Use busy ambulances </h4>
+				<section>
+				  	<input type="checkbox" id="busy"/> <!-- ng-model="checkbox1" ng-change="statusChange()" -->
+				  	<label for="busy"></label>
+				  
+				  	<p class="under-switch">True</p>
+				  	<p class="under-switch">False</p>
+				</section>
+			</div>
+			<div class="switch-box">
+				<h4 class="switch-name white"> Follow selected track </h4>
+				<section>
+				  	<input type="checkbox" id="follow"/> <!-- ng-model="checkbox1" ng-change="statusChange()" -->
+				  	<label for="follow"></label>
+				  
+				  	<p class="under-switch">True</p>
+				  	<p class="under-switch">False</p>
+				</section>
+			</div>
+			<div class="switch-box">
+				<h4 class="switch-name white"> Show offline ambulances </h4>
+				<section>
+				  	<input type="checkbox" id="refresh"/> <!-- ng-model="checkbox1" ng-change="statusChange()" -->
+				  	<label for="refresh"></label>
+				  
+				  	<p class="under-switch">True</p>
+				  	<p class="under-switch">False</p>
+				</section>
+			</div>
+		</div>
+	</div>
+
+	<div class="bottom">
+		<div class="col-sm-offset-4 col-sm-4">
+			<div class="box shadow">
+				distance:
+				<span class="distance"> distance </span>
+				time:
+				<span class="time"> time </span>
+			</div>
 		</div>
 	</div>
 </div>

@@ -36,11 +36,35 @@
     padding-top: 4px;
     padding-right: 51px;
   }
+
+  .options-button {
+    padding-top: 4px;
+    padding-right: 51px;
+  }
 }
 
 .options-container {
   position: absolute;
+  margin: 0 auto;
+  text-align: center;
   top: 80px;
   width: 100%;
   display: none;
+  .box {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+.bottom {
+  display: none;
+  position: absolute;
+  margin: 0 auto;
+  text-align: center;
+  top: 94%;
+  width: 100%;
+  
+  .distance {
+    padding-right: 20px;
+  }
 }
